@@ -1,94 +1,95 @@
-# 💻 ASUS K56CB BIOS Recovery using CH341A Programmer
+# 💻 Recuperación de BIOS ASUS K56CB con programador CH341A
+![Vista previa del montaje del CH341A](./images/errorStolen.jpg)
 
-This project documents the full recovery of a bricked ASUS K56CB laptop using a CH341A programmer and SOP8 clip.  
-After a failed BIOS update, the laptop was completely unresponsive — black screen, no keyboard backlight, no POST.  
-With no internal recovery options available, I manually flashed a clean BIOS dump directly to the chip.
 
----
-
-## 🧰 Tools & Hardware Used
-
-- CH341A USB Programmer (Black edition)
-- SOP8 Clip with cable
-- CH341A Programmer software (v1.34 or AsProgrammer)
-- UEFITool (for BIOS analysis)
-- Verified 8MB BIOS `.bin` dump (W25Q64FV chip)
-- Flux + tweezers (optional, for better pin contact)
+Este proyecto documenta la recuperación completa de un portátil ASUS K56CB bloqueado (brickeado) utilizando un programador CH341A y un clip SOP8.  
+Tras un fallo en la actualización de BIOS, el portátil quedó completamente inoperativo — pantalla en negro, sin retroiluminación, sin POST.  
+Al no existir opciones de recuperación internas, se reescribió manualmente la BIOS directamente sobre el chip SPI.
 
 ---
 
-## 🛠️ Step-by-Step Recovery Process
+## 🧰 Herramientas y hardware utilizado
 
-### 1. Identify the BIOS chip  
-Located the 8-pin SPI BIOS chip on the motherboard (Winbond W25Q64FV — 8MBytes).
-
-### 2. Connect the clip to the chip  
-- Align pin 1 of the SOP8 clip (red wire) with pin 1 of the chip (notch/dot on top left).
-- Connect the clip to the CH341A programmer via the included adapter.
-
-### 3. Dump and back up the original BIOS  
-- Open CH341A Programmer → Read → Save as `bios_backup.bin`
-- Always keep this file in case you need to restore.
-
-### 4. Extract or find a proper BIOS `.bin` file  
-- Avoid ASUS `.209` update files — they are not full dumps.
-- Use UEFITool to verify the structure:
-  - Must include Descriptor Region + ME Region + BIOS Region.
-- File size must be **exactly 8,388,608 bytes (8MB)**.
-
-### 5. Flash the new BIOS  
-- Erase → Open the new `.bin` file → Program → Verify
-- All operations should return “successful” messages.
-
-### 6. Reassemble and test  
-- Disconnect SOP8 clip and USB programmer.
-- Optional: Clear CMOS (remove battery for 30s).
-- Power on: device should boot into BIOS automatically.
+- Programador USB CH341A (edición negra)
+- Clip SOP8 con cable
+- Software CH341A Programmer (v1.34 o AsProgrammer)
+- UEFITool (para análisis de BIOS)
+- Archivo `.bin` verificado de 8MB (chip W25Q64FV)
+- Flux y pinzas (opcional, para mejor contacto)
 
 ---
 
-## ✅ Result
+## 🛠️ Proceso de recuperación paso a paso
 
-BIOS successfully flashed.  
-Laptop now boots correctly and is fully functional again.  
-This saved the machine from being e-waste — and it cost less than €10 in hardware.
+### 1. Identificar el chip BIOS  
+Localizado el chip SPI de 8 pines en la placa base (Winbond W25Q64FV — 8MB).
+
+### 2. Conectar el clip al chip  
+- Alinear el pin 1 del clip SOP8 (cable rojo) con el pin 1 del chip (muesca o punto en la esquina).
+- Conectar el clip al CH341A mediante el adaptador.
+
+### 3. Leer y guardar una copia de seguridad  
+- Abrir CH341A Programmer → Leer → Guardar como `bios_backup.bin`
+- **Siempre haz una copia de seguridad antes de flashear.**
+
+### 4. Conseguir o extraer una BIOS válida  
+- **No usar archivos `.209` de ASUS directamente** (no son dumps completos).
+- Verificar estructura con UEFITool:
+  - Debe contener Descriptor Region + ME Region + BIOS Region.
+- El tamaño debe ser exactamente **8.388.608 bytes (8MB)**.
+
+### 5. Flashear la nueva BIOS  
+- Borrar → Cargar archivo `.bin` → Programar → Verificar
+- Todos los pasos deben mostrar “success” o “completado con éxito”.
+
+### 6. Montar y encender  
+- Desconectar el clip y el programador.
+- (Opcional) Resetear CMOS quitando la pila 30 segundos.
+- Encender el portátil: debería arrancar directamente en la BIOS.
 
 ---
 
-## 📷 Images
+## ✅ Resultado
 
-See the `/images` folder for detailed connection photos and software screenshots.
-
----
-
-## 📁 Files Included
-
-- `bios_backup.bin` → Original dump before flashing
-- `K56CB_fixed.bin` → Clean BIOS dump used for recovery
-- Tool links & references in `/tools`
+La BIOS se flasheó correctamente.  
+El portátil ahora arranca sin problemas y funciona al 100 %.  
+Este proceso lo rescató del contenedor… y por menos de 10 € en herramientas.
 
 ---
 
-## 📎 Useful Links
+## 📷 Imágenes
+
+Consulta la carpeta `/images` para fotos detalladas del proceso y capturas del software.
+
+---
+
+## 📁 Archivos incluidos
+
+- `bios_backup.bin` → Dump original de seguridad
+- `K56CB_fixed.bin` → BIOS limpia utilizada para recuperar
+- Enlaces de herramientas y utilidades en `/tools`
+
+---
+
+## 📎 Enlaces útiles
 
 - [UEFITool (GitHub)](https://github.com/LongSoft/UEFITool)
-- [CH341A Programmer Tools](https://github.com/nofeletru/UsbAsp-flash/wiki/CH341A)
-- [Win-Raid BIOS Dump Forum](https://winraid.level1techs.com/)
+- [Herramientas CH341A](https://github.com/nofeletru/UsbAsp-flash/wiki/CH341A)
+- [Foro Win-Raid (BIOS dumps)](https://winraid.level1techs.com/)
 - [BIOS-Mods.com](https://www.bios-mods.com/)
 
 ---
 
-## 🧠 Lessons Learned
+## 🧠 Lecciones aprendidas
 
-- Always back up your original BIOS before doing anything.
-- Don’t flash `.209` files directly — they’re incomplete for external programmers.
-- A €10 programmer and some patience can save a laptop.
-- There's very little documentation — so I made my own.
+- Haz siempre un backup de tu BIOS antes de tocar nada.
+- No flashees archivos `.209` con CH341A — están incompletos.
+- Con un programador de 10 € y algo de paciencia se pueden salvar muchos equipos.
+- Como apenas hay documentación clara, decidí crear la mía.
 
 ---
 
-## 📇 Author
+## 📇 Autor
 
-Repaired and documented by [@kiz4ru](https://github.com/kiz4ru)  
-If this helped you, consider ⭐️ starring the repo!
-
+Reparación y documentación realizada por [@kiz4ru](https://github.com/kiz4ru)  
+Si te ha sido útil, considera dejar una ⭐️ al repositorio.
