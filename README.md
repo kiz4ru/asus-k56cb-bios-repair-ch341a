@@ -1,5 +1,5 @@
 # 💻 ASUS K56CB BIOS Recovery + Anti-Theft Bypass with CH341A
-![Vista previa del montaje del CH341A](./images/errorStolen.jpg)
+![Vista previa del montaje del CH341A](./images/ntb.jpg)
 
 
 Este proyecto documenta la recuperación completa de un portátil ASUS K56CB bloqueado (brickeado) utilizando un programador CH341A y un clip SOP8.  
