@@ -3,7 +3,7 @@
 
 
 Este proyecto documenta la recuperación completa de un portátil ASUS K56CB bloqueado (brickeado) utilizando un programador CH341A y un clip SOP8.  
-Tras un fallo en la actualización de BIOS, el portátil quedó completamente inoperativo — pantalla en negro, sin retroiluminación, sin POST.  
+Tras un fallo en la actualización de BIOS, el portátil quedó completamente inoperativo pantalla en negro, sin retroiluminación, sin POST.  
 Al no existir opciones de recuperación internas, se reescribió manualmente la BIOS directamente sobre el chip SPI.
 
 ---
@@ -22,9 +22,10 @@ Al no existir opciones de recuperación internas, se reescribió manualmente la 
 ## 🛠️ Proceso de recuperación paso a paso
 
 ### 1. Identificar el chip BIOS  
-Localizado el chip SPI de 8 pines en la placa base (Winbond W25Q64FV — 8MB).
+Localizado el chip SPI de 8 pines en la placa base (Winbond W25Q64FV 8MB).
 
-### 2. Conectar el clip al chip  
+### 2. Conectar el clip al chip 
+ ![Vista previa del montaje del CH341A](./images/clip_chip.JPEG.jpg)
 - Alinear el pin 1 del clip SOP8 (cable rojo) con el pin 1 del chip (muesca o punto en la esquina).
 - Conectar el clip al CH341A mediante el adaptador.
 
@@ -74,16 +75,14 @@ Consulta la carpeta `/images` para fotos detalladas del proceso y capturas del s
 ## 📎 Enlaces útiles
 
 - [UEFITool (GitHub)](https://github.com/LongSoft/UEFITool)
-- [Herramientas CH341A](https://github.com/nofeletru/UsbAsp-flash/wiki/CH341A)
-- [Foro Win-Raid (BIOS dumps)](https://winraid.level1techs.com/)
-- [BIOS-Mods.com](https://www.bios-mods.com/)
+- [Herramientas CH341A](https://placaschinas.com/como/asprogrammer-flashear-bios-con-programador/)
 
 ---
 
 ## 🧠 Lecciones aprendidas
 
 - Haz siempre un backup de tu BIOS antes de tocar nada.
-- No flashees archivos `.209` con CH341A — están incompletos.
+- No flashees archivos `.209` con CH341A Están incompletos.
 - Con un programador de 10 € y algo de paciencia se pueden salvar muchos equipos.
 - Como apenas hay documentación clara, decidí crear la mía.
 
@@ -93,3 +92,4 @@ Consulta la carpeta `/images` para fotos detalladas del proceso y capturas del s
 
 Reparación y documentación realizada por [@kiz4ru](https://github.com/kiz4ru)  
 Si te ha sido útil, considera dejar una ⭐️ al repositorio.
+Si hay dudas hablarme.
