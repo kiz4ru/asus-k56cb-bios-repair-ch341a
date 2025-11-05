@@ -1,4 +1,4 @@
-# 💻 Recuperación de BIOS ASUS K56CB con programador CH341A
+# 💻 ASUS K56CB BIOS Recovery + Anti-Theft Bypass with CH341A
 ![Vista previa del montaje del CH341A](./images/errorStolen.jpg)
 
 
