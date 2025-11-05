@@ -25,7 +25,7 @@ Al no existir opciones de recuperación internas, se reescribió manualmente la 
 Localizado el chip SPI de 8 pines en la placa base (Winbond W25Q64FV 8MB).
 
 ### 2. Conectar el clip al chip 
- ![Vista previa del montaje del CH341A](./images/clip_chip.JPEG.jpg)
+ ![Vista previa del chip](./images/clip_chip.JPEG.jpg)
 - Alinear el pin 1 del clip SOP8 (cable rojo) con el pin 1 del chip (muesca o punto en la esquina).
 - Conectar el clip al CH341A mediante el adaptador.
 
