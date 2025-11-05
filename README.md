@@ -41,7 +41,8 @@ Localizado el chip SPI de 8 pines en la placa base (Winbond W25Q64FV 8MB).
   - Debe contener Descriptor Region + ME Region + BIOS Region.
 - El tamaño debe ser exactamente **8.388.608 bytes (8MB)**.
 
-### 5. Flashear la nueva BIOS  
+### 5. Flashear la nueva BIOS 
+ ![Vista previa del UEF](./images/program.png) 
 - Borrar → Cargar archivo `.bin` → Programar → Verificar
 - Todos los pasos deben mostrar “success” o “completado con éxito”.
 
