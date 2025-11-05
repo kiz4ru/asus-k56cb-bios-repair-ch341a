@@ -29,11 +29,13 @@ Localizado el chip SPI de 8 pines en la placa base (Winbond W25Q64FV 8MB).
 - Alinear el pin 1 del clip SOP8 (cable rojo) con el pin 1 del chip (muesca o punto en la esquina).
 - Conectar el clip al CH341A mediante el adaptador.
 
-### 3. Leer y guardar una copia de seguridad  
+### 3. Leer y guardar una copia de seguridad 
+![Vista previa del bin](./images/imagenBinBackup.png) 
 - Abrir CH341A Programmer → Leer → Guardar como `bios_backup.bin`
 - **Siempre haz una copia de seguridad antes de flashear.**
 
-### 4. Conseguir o extraer una BIOS válida  
+### 4. Conseguir o extraer una BIOS válida 
+![Vista previa del UEF](./images/IMG_7C256C69-930C-44F9-9259-733CA7ECD2FE.JPEG) 
 - **No usar archivos `.209` de ASUS directamente** (no son dumps completos).
 - Verificar estructura con UEFITool:
   - Debe contener Descriptor Region + ME Region + BIOS Region.
@@ -43,7 +45,8 @@ Localizado el chip SPI de 8 pines en la placa base (Winbond W25Q64FV 8MB).
 - Borrar → Cargar archivo `.bin` → Programar → Verificar
 - Todos los pasos deben mostrar “success” o “completado con éxito”.
 
-### 6. Montar y encender  
+### 6. Montar y encender 
+![Vista previa del portatil](./images/IMG_9124.JPEG) 
 - Desconectar el clip y el programador.
 - (Opcional) Resetear CMOS quitando la pila 30 segundos.
 - Encender el portátil: debería arrancar directamente en la BIOS.
