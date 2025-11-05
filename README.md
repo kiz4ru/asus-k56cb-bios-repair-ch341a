@@ -1,0 +1,1 @@
+# asus-k56cb-bios-repair-ch341a
